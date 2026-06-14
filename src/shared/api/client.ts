@@ -27,7 +27,7 @@ export class ApiError extends Error {
 }
 
 /** True when an error is an `AbortController`-triggered cancellation. */
-export function isAbortError(error: unknown): boolean {
+export function isAbortError(error: Error): boolean {
   return error instanceof DOMException && error.name === "AbortError";
 }
 
@@ -66,7 +66,7 @@ export async function apiGet<T>(
   } catch (error) {
     // Re-throw aborts untouched so callers can ignore them; everything else
     // becomes a friendly network error.
-    if (isAbortError(error)) {
+    if (error instanceof Error && isAbortError(error)) {
       throw error;
     }
     throw new ApiError(

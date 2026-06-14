@@ -62,7 +62,7 @@ export function useBookmarkedAnnouncements(): BookmarkedAnnouncements {
           return next;
         });
       })
-      .catch((err: unknown) => {
+      .catch((err: Error) => {
         if (isAbortError(err)) {
           return;
         }

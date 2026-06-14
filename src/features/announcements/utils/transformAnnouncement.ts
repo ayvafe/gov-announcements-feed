@@ -1,6 +1,5 @@
 import { capitalizeWords } from "@shared/utils/text";
 import {
-  CATEGORIES,
   CATEGORY_COUNT,
   URGENT_ID_DIVISOR,
 } from "@features/announcements/constants";
@@ -35,7 +34,7 @@ export function isUrgentForId(id: number): boolean {
   return id % URGENT_ID_DIVISOR === 0;
 }
 
-// Maps a raw API post → Announcement. Pure and testable.
+// Maps a raw API post → Announcement. Pure and testable
 export function toAnnouncement(post: RawPost): Announcement {
   return {
     id: post.id,

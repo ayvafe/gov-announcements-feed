@@ -6,7 +6,7 @@ import {
   SEARCH_DEBOUNCE_MS,
 } from "@features/announcements/constants";
 import type { CategoryFilter } from "@features/announcements/types";
-import { parseCategory } from "@features/announcements/utils/parseCategory";
+import { parseCategory } from "@features/announcements/utils/parseParams";
 
 export interface AnnouncementFilters {
   searchInput: string;

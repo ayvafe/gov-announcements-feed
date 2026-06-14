@@ -43,7 +43,7 @@ export function AnnouncementsProvider({ children }: { children: ReactNode }) {
           setState(asyncSuccess(announcements));
         }
       })
-      .catch((error: unknown) => {
+      .catch((error: Error) => {
         if (isAbortError(error)) {
           return; // Stale request — ignore
         }

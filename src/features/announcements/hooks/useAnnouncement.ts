@@ -9,7 +9,7 @@ import {
 import { fetchAnnouncementById } from "@features/announcements/api/announcementsApi";
 import { useAnnouncements } from "./useAnnouncements";
 import type { Announcement } from "@features/announcements/types";
-import { parseId } from "@features/announcements/utils/parseId";
+import { parseId } from "@features/announcements/utils/parseParams";
 
 /**
  * Resolves a single announcement for the detail page.
@@ -52,7 +52,7 @@ export function useAnnouncement(
           setState(asyncSuccess(announcement));
         }
       })
-      .catch((error: unknown) => {
+      .catch((error: Error) => {
         if (isAbortError(error)) {
           return;
         }
